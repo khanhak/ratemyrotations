@@ -16,8 +16,19 @@ def input_rotation_info():
     return redirect("https://forms.gle/W6U5s9Zb9pi2MC3YA",code=302)
 
 
-@app.app.route('/sites_by_state/<string:state_name>/')
-def show_states(state_name):
+@app.app.route('/sites_by_state/<string:state_abbreviation>/')
+def show_states(state_abbreviation):
+
+
+    #get state names and abberviations
+    json_file = "rmr//static//us_states.json"
+    ls = []
+    f = open(json_file)
+    state_json = json.load(f)
+    this_state_name = state_json[state_abbreviation]
+
+
+
     # scrape data from GSheets with pandas, only add to list if state_name = string state_name
     # 
     '''
@@ -30,7 +41,7 @@ def show_states(state_name):
     url = f'https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv'
     df = pd.read_csv(url)
     #print("csv head",df.head())
-    filtered_df = df.loc[df['State'] == state_name]
+    filtered_df = df.loc[df['State'] == this_state_name]
     #TODO: improve speed by vectorizing operations instead of going row by row and splitting
     info = []
     
@@ -54,8 +65,10 @@ def show_states(state_name):
             "hours_per_week":hours_per_week,
             "comments":comments
         })
+
+
         
 
-    context = {"rotation_info":info,"state":state_name}
+    context = {"rotation_info":info,"state_name":this_state_name}
     return render_template("state_input.html",**context)
 

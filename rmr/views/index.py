@@ -1,8 +1,8 @@
 import flask
-import rmr
+import rmr as app
 
 
-@rmr.app.route('/')
+@app.app.route('/')
 def show_index():
     """Display / route."""
     context = {}

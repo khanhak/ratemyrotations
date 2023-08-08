@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State List</title>
+    <style>
+        h2 {
+            font-size: 30px;
+        }
+
+        body {
+            font-family: Palatino, "Palatino Linotype";
+            margin: 20px;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        li {
+            font-size: 20px;
+        }
+
+
+
+        li:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Where is your rotation of interest?</h2>
+    <ul>
+        {% for state in state_list %}
+        <li>
+            <a href="/sites_by_state/{{ state.abbreviation }}">{{ state.state_name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
