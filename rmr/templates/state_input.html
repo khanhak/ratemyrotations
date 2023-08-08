@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.min.css" />
+
+    <link rel="stylesheet" type="text/css"
+        href="https://rawgit.com/vitalets/x-editable/master/dist/bootstrap3-editable/css/bootstrap-editable.css" />
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="padding-top: 5%;">Rotation Ratings in {{state}}</h1>
+
+        <p></p>
+
+        <!-- <div id="toolbar">
+            <select class="form-control">
+                <option value="">Export Basic</option>
+                <option value="all">Export All</option>
+                <option value="selected">Export Selected</option>
+            </select>
+        </div>-->
+
+        <table id="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true"
+            data-click-to-select="true" data-toolbar="#toolbar" class="table-responsive">
+            <thead>
+                <tr>
+                    <!-- <th data-field="state" data-checkbox="true"></th> -->
+                    <th data-field="rotation_site_name" data-filter-control="input" data-sortable="true">Rotation Site
+                    </th>
+                    <th data-field="date" data-sortable="true">Date</th>
+                    <th data-field="specialty" data-filter-control="select" data-sortable="true">Specialty</th>
+                    <th data-field="teaching_quality" data-sortable="true">Teaching Quality
+                    </th>
+                    <th data-field="patient_exposure" data-sortable="true">Patient Exposure
+                    </th>
+                    <th data-field="preceptor_support" data-sortable="true">Preceptor
+                        Support</th>
+                    <th data-field="hours_per_week" data-sortable="true">Hours per Week</th>
+                    <th data-field="comments" data-filter-control="input" data-sortable="true">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in rotation_info %}
+                <tr>
+                    <!-- <td class="bs-checkbox "><input data-index="{{loop.index}}" name="btSelectItem" type="checkbox"> -->
+                    </td>
+                    <td>{{data.rotation_site_name}}</td>
+                    <td>{{data.timestamp | process_timestamp}}</td>
+                    <td>{{data.specialty}}</td>
+                    <td>{{data.teaching_quality}}</td>
+                    <td>{{data.patient_exposure}}</td>
+                    <td>{{data.preceptor_support}}</td>
+                    <td>{{data.hours_per_week}}</td>
+                    <td>{{data.comments}}</td>
+
+                </tr>
+                {% endfor %}
+
+                <!-- Where I'm at right now - If I add more than 4 <td></td>, a bunch of funcionality disappears. Bc the table was only meant for 4. Figure out why and so I can add >4  -->
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.0/bootstrap-table.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/editable/bootstrap-table-editable.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/export/bootstrap-table-export.js"></script>
+    <script src="https://rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.1/extensions/filter-control/bootstrap-table-filter-control.js"></script>
+    <script>
+        //exporte les données sélectionnées
+        var $table = $('#table');
+        $(function () {
+            $('#toolbar').find('select').change(function () {
+                $table.bootstrapTable('refreshOptions', {
+                    exportDataType: $(this).val()
+                });
+            });
+        })
+
+        var trBoldBlue = $("table");
+
+        $(trBoldBlue).on("click", "tr", function () {
+            $(this).toggleClass("bold-blue");
+        });
+    </script>
+</body>
+
+</html>
