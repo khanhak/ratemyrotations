@@ -1,5 +1,5 @@
 import flask
-import rmr
+import rmr as app
 import json
 import pandas as pd
 from collections import defaultdict
@@ -10,13 +10,13 @@ from flask import render_template, redirect, url_for
 def process_timestamp(timestamp):
     split = timestamp.split("/")
     return str(split[1] + "/" + split[2][:4])
-rmr.app.jinja_env.filters['process_timestamp'] = process_timestamp
-@rmr.app.route('/state_input/')
+app.app.jinja_env.filters['process_timestamp'] = process_timestamp
+@app.app.route('/state_input/')
 def input_rotation_info():
     return redirect("https://forms.gle/W6U5s9Zb9pi2MC3YA",code=302)
 
 
-@rmr.app.route('/sites_by_state/<string:state_name>/')
+@app.app.route('/sites_by_state/<string:state_name>/')
 def show_states(state_name):
     # scrape data from GSheets with pandas, only add to list if state_name = string state_name
     # 
