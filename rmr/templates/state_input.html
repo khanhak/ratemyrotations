@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" style="width:100%;">
         <h1 style="padding-top: 5%;">Rotation Ratings in {{state_name}}</h1>
 
         <p></p>
@@ -42,10 +42,12 @@
             <thead>
                 <tr>
                     <!-- <th data-field="state" data-checkbox="true"></th> -->
+                    <th data-field="date" data-sortable="true">Date</th>
                     <th data-field="rotation_site_name" data-filter-control="input" data-sortable="true">Rotation Site
                     </th>
-                    <th data-field="date" data-sortable="true">Date</th>
+
                     <th data-field="specialty" data-filter-control="select" data-sortable="true">Specialty</th>
+                    <th data-field="comments" data-filter-control="input" data-sortable="true">Comments</th>
                     <th data-field="teaching_quality" data-sortable="true">Teaching Quality
                     </th>
                     <th data-field="patient_exposure" data-sortable="true">Patient Exposure
@@ -53,7 +55,7 @@
                     <th data-field="preceptor_support" data-sortable="true">Preceptor
                         Support</th>
                     <th data-field="hours_per_week" data-sortable="true">Hours per Week</th>
-                    <th data-field="comments" data-filter-control="input" data-sortable="true">Comments</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -64,11 +66,12 @@
                     <td>{{data.rotation_site_name}}</td>
                     <td>{{data.timestamp | process_timestamp}}</td>
                     <td>{{data.specialty}}</td>
+                    <td>{{data.comments}}</td>
                     <td>{{data.teaching_quality}}</td>
                     <td>{{data.patient_exposure}}</td>
                     <td>{{data.preceptor_support}}</td>
                     <td>{{data.hours_per_week}}</td>
-                    <td>{{data.comments}}</td>
+
 
                 </tr>
                 {% endfor %}

@@ -72,3 +72,4 @@ def show_states(state_abbreviation):
     context = {"rotation_info":info,"state_name":this_state_name}
     return render_template("state_input.html",**context)
 
+
