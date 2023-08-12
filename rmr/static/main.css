@@ -753,23 +753,23 @@
     transform: scale(1.1);
   }
   
-  .clients .swiper-pagination {
+  /* .clients .swiper-pagination {
     margin-top: 20px;
     position: relative;
   }
-  
-  .clients .swiper-pagination .swiper-pagination-bullet {
+   */
+  /* .clients .swiper-pagination .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background-color: #fff;
     opacity: 1;
     background-color: #ddd;
-  }
+  } */
   
-  .clients .swiper-pagination .swiper-pagination-bullet-active {
+  /* .clients .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
   }
-  
+   */
   /*--------------------------------------------------------------
   # Stats Counter Section
   --------------------------------------------------------------*/
@@ -1072,12 +1072,12 @@
     margin: 15px auto 15px auto;
   }
   
-  .testimonials .swiper-pagination {
+  /* .testimonials .swiper-pagination {
     margin-top: 20px;
     position: relative;
-  }
+  } */
   
-  .testimonials .swiper-pagination .swiper-pagination-bullet {
+  /* .testimonials .swiper-pagination .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -1086,7 +1086,7 @@
   
   .testimonials .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
-  }
+  } */
   
   @media (max-width: 767px) {
     .testimonials .testimonial-wrap {
@@ -1199,7 +1199,7 @@
     width: 100%;
   }
   
-  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+  /* .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
     width: 12px;
     height: 12px;
     background-color: rgba(255, 255, 255, 0.7);
@@ -1208,7 +1208,7 @@
   
   .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
-  }
+  } */
   
   .portfolio-details .swiper-button-prev,
   .portfolio-details .swiper-button-next {
@@ -1954,7 +1954,6 @@
       right: 0;
       height: calc(50% + 20px);
       background-color: #fff;
-      background-image:url('bg_image.jpg');
     }
   }
   
@@ -2002,20 +2001,3 @@
     color: #fff;
   }
 
-  .img-bottom{
-    background-image: url('bg_image.jpg');
-    height: 29vh;
-    background-position: 0 -23.3054245vh;
-    background-color: rgba(0, 0, 0, 1); /* Adjust the color and opacity (alpha value) as needed */
-  }
-  .img-container{
-  position:relative;
-  top:0;
-  left:0;
-  height:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
-
-  }
